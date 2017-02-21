@@ -26,4 +26,14 @@ git clone git@github.com:SkylabCoders/express-projects.git -b blog --single-bran
 
 ...being `express-blog` the name of the folder where you want your repo (it can be another one)
 
+### Website w/ Styles/Sass
+
+```
+git clone git@github.com:SkylabCoders/express-projects.git -b website --single-branch express-website
+```
+
+...being `express-website` the name of the folder where you want your repo (it can be another one)
+
+
+
 

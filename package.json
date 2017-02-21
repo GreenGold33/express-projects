@@ -2,23 +2,12 @@
   "name": "express-projects",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "prestart": "npm install",
-    "build-css": "node-sass sass/main.sass public/css/main.css",
-    "watch-css": "nodemon -e sass -x \"npm run build-css\" ",
-    "clean": "rm -rf public/css && mkdir -p public/css",
-    "build": "npm run clean && npm run build-css",
-    "watch": "npm run clean && npm run watch-css & nodemon app -e js,pug",
-    "start": "npm run build && node app"
+    "watch": "nodemon main"
   },
   "dependencies": {
     "express": "^4.14.1",
-    "morgan": "^1.8.1",
-    "nib": "^1.0.4",
-    "node-sass": "^4.5.0",
-    "nodemon": "^1.11.0",
-    "pug": "^2.0.0-beta11",
-    "stylus": "^0.49.1"
+    "nodemon": "^1.11.0"
   }
 }

@@ -1,0 +1,10 @@
+<!-- @begin Dynamic content -->
+<ul class="list-group">
+{{#each entries}}
+  <li class="list-group-item post-entry">
+      <a href="/article/{{id}}">{{title}}</a>
+      <span>Published: {{published}}</span>
+  </li>
+{{/each}}
+</ul>
+<!-- @end Dynamic content -->

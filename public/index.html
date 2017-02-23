@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tasks Manager</title>
+  <style>
+    .done { text-decoration: line-through; }
+  </style>
+</head>
+<body>
+  <h1>Tasks Manager</h1>
+  <button>Load Tasks</button>
+  <ul></ul>
+  <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script>
+    $('button').on('click', () => {
+
+      const url = '/api/Todos'
+      const insertToDom = html => $('ul').html(html)
+
+      $.ajax({ url })
+        .then( data =>
+          data
+            .map( task => `
+              <li ${task.done ? "class=done" : ""}>${task.todo}</li>
+            `)
+            .join('')
+        )
+        .then( insertToDom )
+
+    })
+
+  </script>
+</body>
+</html>

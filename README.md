@@ -34,6 +34,13 @@ git clone git@github.com:SkylabCoders/express-projects.git -b website --single-b
 
 ...being `express-website` the name of the folder where you want your repo (it can be another one)
 
+### Tasks Manager
+
+```
+git clone git@github.com:SkylabCoders/express-projects.git -b express-tasks --single-branch tasks-manager
+```
+
+...being `tasks-manager` the name of the folder where you want your repo (it can be another one)
 
 
 

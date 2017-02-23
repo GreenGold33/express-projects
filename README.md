@@ -1,6 +1,12 @@
 # TO-DO App using an API
 
-Create a server that "serves" a client (normally under the `public` folder) that interacts with this server by using the different endopoints
+Create a server that "serves" a client (under the `public` folder) that: 
+
+- interacts with this server by using the different endopoints
+- manage the creation, update, removal of tasks
+- show different list tasks (done & pending tasks)
+
+Feel free to use your own design and client app routes 
 
 ## Start server
 

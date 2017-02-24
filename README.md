@@ -15,7 +15,7 @@ So to clone these projects you can do for example
 git clone https://github.com/SkylabCoders/express-projects.git -b first-demo --single-branch express-first-demo && cd express-first-demo && rm -rf .git
 ```
 
-...being `first-demo` the name of the folder where you want your repo (it can be another one)
+...being `express-first-demo` the name of the folder where you want your repo (it can be another one)
 
 
 ### [Blog Express Project](https://github.com/SkylabCoders/express-projects/tree/blog) 
@@ -37,10 +37,10 @@ git clone https://github.com/SkylabCoders/express-projects.git -b website --sing
 ### [Tasks Manager](https://github.com/SkylabCoders/express-projects/tree/express-tasks)
 
 ```
-git clone https://github.com/SkylabCoders/express-projects.git -b express-tasks --single-branch tasks-manager && cd tasks-manager && rm -rf .git
+git clone https://github.com/SkylabCoders/express-projects.git -b express-tasks --single-branch express-tasks-manager && cd express-tasks-manager && rm -rf .git
 ```
 
-...being `tasks-manager` the name of the folder where you want your repo (it can be another one)
+...being `express-tasks-manager` the name of the folder where you want your repo (it can be another one)
 
 
 ### [Tasks Manager w/ pug & jQuery (DONE)](https://github.com/SkylabCoders/express-projects/tree/express-todo-pug)

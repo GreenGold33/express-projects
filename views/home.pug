@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  form.form-inline(action='/tasks', method='POST')
+    .input-group
+      input.form-control(type='text', name='title')
+      .input-group-btn
+        button.btn.btn-default(type='submit') Add
+  ul
+    each task in tasks
+      li= task.title
+        p
+          | ( Created at &nbsp;
+          span= moment(task.createdAt).format('YYYY/MM/DD hh:mm')
+          |  )
+          a(class='delete', href='/task/' + task.id) [delete]

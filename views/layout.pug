@@ -11,18 +11,10 @@ html(lang='en')
       .header.clearfix
         nav
           ul.nav.nav-pills.pull-left
-            if section === 'home'
-              li.active
-                a(href='/') List Tasks
-            else
-              li
-                a(href='/') List Tasks
-            if section === 'completed'
-              li.active
-                a(href='/tasks/completed') Completed
-            else
-              li
-                a(href='/tasks/completed') Completed
+            li(class=(section === 'home') && "active")
+              a(href='/') List Tasks
+            li(class=(section === 'completed') && "active")
+              a(href='/tasks/completed') Completed
     .container
       h1= title
       h3 Welcome to the Todo app by

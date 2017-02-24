@@ -22,6 +22,11 @@ angular.module('TasksApp', ['ngRoute','angularMoment'])
 
     $scope.$on('tasksChange', getTasks)
 
+    $scope.removeTask = function(e, id) {
+      e.preventDefault()
+      DataFactory.removeTask(id)
+    }
+
     getTasks()
 
   })
@@ -29,14 +34,10 @@ angular.module('TasksApp', ['ngRoute','angularMoment'])
 
     $scope.section = 'todo'
 
-    $scope.removeTask = function(e, id) {
-      e.preventDefault()
-      DataFactory.removeTask(id)
-    }
-
     $scope.addTask = function(e) {
       e.preventDefault()
       const title = $scope.title
+      $scope.title = ''
       DataFactory.addTask(title)
     }
 
@@ -80,7 +81,7 @@ angular.module('TasksApp', ['ngRoute','angularMoment'])
     }
 
     function markAsDone({ id, title, createdAt }) {
-      return $http.put(`/api/Todos/${id}`, { id, title, createdAt })
+      return $http.put(`/api/Todos/${id}`, { id, title, done:true, createdAt })
                 .then( notifyChanges )
     }
 

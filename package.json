@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm install",
+    "prestart": "npm install && bower install",
     "dev": "nodemon server",
     "start": "node server"
   },

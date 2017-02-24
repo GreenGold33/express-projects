@@ -1,4 +1,4 @@
-angular.module('TasksApp', ['ngRoute'])
+angular.module('TasksApp', ['ngRoute','angularMoment'])
   .config( function( $routeProvider ) {
 
     $routeProvider
@@ -7,53 +7,83 @@ angular.module('TasksApp', ['ngRoute'])
           controller: 'TodoTasksCtrl'
       })
       .when('/tasks/done', {
-          templateUrl: '/partials/tasks.html',
+          templateUrl: '/partials/done.html',
           controller: 'DoneTasksCtrl'
       })
       .otherwise('/tasks/todo')
 
   })
+  .controller('TasksCtrl', function($scope, DataFactory) {
+
+    function getTasks() {
+      DataFactory.getTasks()
+        .then( tasks => $scope.tasks = tasks )
+    }
+
+    $scope.$on('tasksChange', getTasks)
+
+    getTasks()
+
+  })
   .controller('TodoTasksCtrl', function($scope, DataFactory) {
 
-    $scope.isSectionDone = false;
-
-    DataFactory.getTasks() // will assign tasks to rootScope
+    $scope.section = 'todo'
 
     $scope.removeTask = function(e, id) {
       e.preventDefault()
       DataFactory.removeTask(id)
-        .then( DataFactory.getTasks )
     }
 
     $scope.addTask = function(e) {
       e.preventDefault()
       const title = $scope.title
       DataFactory.addTask(title)
-        .then( DataFactory.getTasks )
+    }
+
+    $scope.markAsDone = function(e, task) {
+      e.preventDefault()
+      DataFactory.markAsDone(task)
     }
 
   })
-  .controller('DoneTasksCtrl', function($scope) {
+  .controller('HeaderCtrl', function($scope, $location) {
 
-    $scope.isSectionDone = true;
+     $scope.isActive = function (viewLocation) {
+        return viewLocation === $location.path();
+    };
 
   })
-  .factory('DataFactory', function($http, $rootScope) {
+  .controller('DoneTasksCtrl', function($scope, DataFactory) {
+
+    $scope.section = 'done'
+
+  })
+  .factory('DataFactory', function($http, $q, $rootScope) {
+
+    function notifyChanges() {
+      $rootScope.$broadcast('tasksChange');
+    }
 
     function getTasks() {
       return $http.get('/api/Todos')
                 .then( ({ data }) => data )
-                .then( tasks => $rootScope.tasks = tasks)
     }
 
     function addTask( title ) {
       return $http.post('/api/Todos', { title } )
+                .then( notifyChanges )
     }
 
     function removeTask( id ) {
       return $http.delete(`/api/Todos/${id}`)
+                .then( notifyChanges )
     }
 
-    return { getTasks, addTask, removeTask }
+    function markAsDone({ id, title, createdAt }) {
+      return $http.put(`/api/Todos/${id}`, { id, title, createdAt })
+                .then( notifyChanges )
+    }
+
+    return { getTasks, addTask, removeTask, markAsDone }
 
   })

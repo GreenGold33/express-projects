@@ -43,4 +43,16 @@ git clone git@github.com:SkylabCoders/express-projects.git -b express-tasks --si
 ...being `tasks-manager` the name of the folder where you want your repo (it can be another one)
 
 
+### Tasks Manager w/ pug & jQuery (DONE)
+
+```
+git clone git@github.com:SkylabCoders/express-projects.git -b express-todo-pug --single-branch express-todo-pug
+```
+
+...being `express-todo-pug` the name of the folder where you want your repo (it can be another one)
+
+
+
+
+
 

@@ -1,0 +1,43 @@
+.pending {
+  margin-top:20px;
+  list-style: none;
+  margin-left:30px;
+}
+.pending li {
+  margin-bottom:25px;
+}
+
+.pending li h4 {
+  margin-left:-66px;
+}
+
+.pending .done {
+  margin-right:10px;
+}
+
+.pending .delete {
+  margin-left:10px;
+}
+
+.pending p {
+  margin-top:-20px;
+}
+
+.pending .edit-title {
+  margin-left:10px;
+  cursor:pointer;
+  display: none;
+}
+
+.pending li.edit .edit-title, .pending li.edit span {
+  display: none !important;
+}
+
+.pending li.edit input {
+  display: inline !important;
+}
+
+.pending li:hover .edit-title {
+  display: inline;
+}
+.completed li { text-decoration: line-through; }

@@ -4,15 +4,25 @@ html(lang='en')
     meta(charset='UTF-8')
     title Tasks Manager
     link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/styles.css')
+
   body
     .container
       .header.clearfix
         nav
           ul.nav.nav-pills.pull-left
-            li.active
-              a(href='#') List Tasks
-            li
-              a(href='#') Completed
+            if section === 'home'
+              li.active
+                a(href='/') List Tasks
+            else
+              li
+                a(href='/') List Tasks
+            if section === 'completed'
+              li.active
+                a(href='/tasks/completed') Completed
+            else
+              li
+                a(href='/tasks/completed') Completed
     .container
       h1= title
       h3 Welcome to the Todo app by

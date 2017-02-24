@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  ul.completed
+    each task in tasks
+      li= task.title
+        p
+          | ( Completed at &nbsp;
+          span= moment(task.completedAt).format('YYYY/MM/DD hh:mm')
+          |  )

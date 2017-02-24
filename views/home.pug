@@ -6,11 +6,17 @@ block content
       input.form-control(type='text', name='title')
       .input-group-btn
         button.btn.btn-default(type='submit') Add
-  ul
+  ul.pending
     each task in tasks
-      li= task.title
+      li
+        h4
+          a(class='btn btn-primary done', href='/task/' + task.id) done
+          span #{task.id}. #{task.title}
+          i(class="glyphicon glyphicon-pencil edit-title")
+          input(class="hidden", value=task.title)
+
         p
           | ( Created at &nbsp;
           span= moment(task.createdAt).format('YYYY/MM/DD hh:mm')
           |  )
-          a(class='delete', href='/task/' + task.id) [delete]
+          a(class='btn btn-danger delete', href='/task/' + task.id) delete
